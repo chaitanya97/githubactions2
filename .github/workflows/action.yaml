@@ -73,7 +73,7 @@ jobs:
     needs: upload
     strategy:
       matrix:
-        input: ["Hello", "Hi"]
+        input: ["Hello", "hey"]
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -101,7 +101,7 @@ jobs:
             aws lambda delete-function --function-name test-function-${{ matrix.input }}
   deploy:
     runs-on: ubuntu-latest
-    needs: upload
+    needs: Test
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
