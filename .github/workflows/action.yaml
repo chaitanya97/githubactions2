@@ -66,7 +66,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: us-east-1
       - name: Upload to S3
-        run: aws s3 cp deploy_package.zip s3://githubactionstest1/${{ github.repository }}/deploy_package.zip  
+        run: aws s3 cp deploy_package.zip s3://githubactionstest2/${{ github.repository }}/deploy_package.zip  
 
 
   deploy:
@@ -82,7 +82,7 @@ jobs:
       - name: Update function code
         run: |
             aws lambda update-function-code \
-              --function-name helloworld \
-              --s3-bucket githubactionstest1 \
+              --function-name mylambdafunction \
+              --s3-bucket githubactionstest2 \
               --s3-key ${{ github.repository }}/deploy_package.zip \
               --publish
