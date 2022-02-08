@@ -64,7 +64,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: ap-south-1
+          aws-region: us-east-1
       - name: Upload to S3
         run: aws s3 cp deploy_package.zip s3://githubactionstest1/${{ github.repository }}/deploy_package.zip  
 
@@ -80,7 +80,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: ap-south-1
+          aws-region: us-east-1
       - name: Create test function
         run: |
             aws lambda create-function --function-name test-function-${{ matrix.input }} \
@@ -108,7 +108,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: ap-south-1
+          aws-region: us-east-1
       - name: Update function code
         run: |
             aws lambda update-function-code \
