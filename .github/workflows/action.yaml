@@ -1,4 +1,4 @@
-name: Build, Upload and deploy to AWS Lambda
+name: Build, Upload and deploy to AWS Lambda function
 on: 
  push:
    branches:
